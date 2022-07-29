@@ -1,0 +1,33 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="dbmanagerBean" class="org.egitim.spring.domain.DbManager" scope = "singleton"
+	init-method="initialize" destroy-method="destroy">
+		<constructor-arg type="java.lang.String" name="connectionURL" value="jdbc" />
+		<constructor-arg type="java.lang.String" name="user" value="egitim" />
+		<constructor-arg type="java.lang.String" name="password" value="egitim" />
+		<constructor-arg type="int" name="timeoutMinute" value="60" />
+		
+		<property name = "transactionManager">
+		<bean id="transactionManager" class="org.egitim.spring.domain.TransactionManager">
+			<property name= "transactionTimeout" value = "1"></property>
+		</bean>
+		</property>
+	</bean>
+	
+
+
+	<bean id="kisiController" class="org.egitim.spring.domain.KisiController"
+	init-method="initialize" scope="prototype">
+		<property name = "dbmanager" ref= "dbmanagerBean">
+		</property>
+	</bean>
+	
+	<bean id="birimController" class="org.egitim.spring.domain.BirimController">
+		<property name = "dbmanager" ref= "dbmanagerBean">
+		</property>
+	</bean>
+
+</beans>

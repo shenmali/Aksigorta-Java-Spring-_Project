@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Kişi Listesi</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+	<div th:switch="${kisiList}">
+		<table>
+			<thead>
+				<tr>
+					<th>T.C. Kimlik</th>
+					<th>Ad</th>
+					<th>Soyad</th>
+					<th colspan="2">İşlem</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="kisi : ${kisiTumListeAttribute}">
+					<td th:text="${kisi.tcKimlikNo}"/>
+					<td th:text="${kisi.ad}"/>
+					<td th:text="${kisi.soyad}"/>
+					<td><a href="/islem/kisieklenavigate">Değiştir</a></td>
+					<td><a th:href="@{/islem/deletekisi/{id}(id=${kisi.id})}">Sil</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<p><a href="/islem/kisieklenavigate">Kişi Ekle</a></p>
+</body>
+</html>

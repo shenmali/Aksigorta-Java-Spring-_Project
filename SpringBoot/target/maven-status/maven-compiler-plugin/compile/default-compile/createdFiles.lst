@@ -1,0 +1,5 @@
+org/egitim/springboot/data/entity/BaseEntity.class
+org/egitim/springboot/application/Application.class
+org/egitim/springboot/data/repository/KisiRepository.class
+org/egitim/springboot/data/entity/Kisi.class
+org/egitim/springboot/service/KisiService.class

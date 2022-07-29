@@ -1,0 +1,52 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="systemManager" class="org.egitim.spring.SystemManager">
+		<property name="serverName" value="Main Server"/>
+
+			<property name="printerList">
+
+				<list>
+					<value>Yazici (Toplanti Odasi)</value>
+					<value>Yazici (Ortak Alan)</value>
+					<value>Yazici (Kopyalam Odasi)</value>
+				</list>
+			</property>
+
+
+			<property name="routerSet">
+
+				<set>
+					<value>Router 1234</value>
+					<value>Router 3456</value>
+					<value>Router 1237</value>
+					<value>Router 9785</value>
+					<value>Router 4567</value>
+					<value>Router 1234</value>
+				</set>
+			</property>
+
+			<property name="securityProperties">
+
+				<props>
+					<prop key="accessPolicyId">12315</prop>
+					<prop key="restrictionActionSet">463456</prop>
+				</props>
+			</property>
+
+			<property name="allowedClientMap">
+
+				<map>
+					<entry key="egitim-pc-001" value="192.168.0.1"></entry>
+					<entry key="egitim-pc-002" value="192.168.0.4"></entry>
+					<entry key = "egitim-pc-003" value="192.168.0.5"></entry>
+					<entry key = "egitim-pc-004" value="192.168.0.6"></entry>
+
+				</map>
+			</property>
+	</bean>
+
+</beans>

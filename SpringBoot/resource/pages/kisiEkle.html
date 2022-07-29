@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Kişi Ekle</title>
+</head>
+<body>
+<form action="#" th:action="@{/islem/insertkisi}" th:object="${kisi}" method="post">
+	<label for="tcKimlikNo">T.C. Kimlik No.</label>
+	<input type="text" th:field="*{tcKimlikNo}" id="tcKimlikNo">
+	<label for="ad">Ad</label>
+	<input type="text" th:field="*{ad}" id="ad">
+	<label for="soyad">Soyad</label>
+	<input type="text" th:field="*{soyad}" id="soyad">
+	<input type="submit" value="Kaydet"/>
+</form>
+</body>
+</html>
